@@ -1,30 +1,136 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>IBAN Bilgileri</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ödeme Bilgileri</title>
+
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<main class="card">
-  <div class="logo">₺</div>
-  <h1>Ödeme Bilgileri</h1>
-  <p>Aşağıdaki IBAN üzerinden ödeme yapabilirsiniz.</p>
+  <main class="page">
 
-  <div class="label">Ad Soyad</div>
-  <div id="name">Yükleniyor...</div>
+    <!-- ÜST İMZA -->
+    <header class="header">
 
-  <div class="label">IBAN</div>
-  <div class="row">
-    <span id="iban">Yükleniyor...</span>
-    <button id="copy">Kopyala</button>
-  </div>
+      <div class="signature">
+        Can Açıkalın
+      </div>
 
-  <div id="status"></div>
-</main>
+      <div class="page-title">
+        ÖDEME BİLGİLERİ
+      </div>
 
-<script src="script.js"></script>
+    </header>
+
+
+    <!-- ANA KART -->
+    <section class="payment-card">
+
+      <!-- BANKA İKONU -->
+      <div class="bank-icon">
+        🏛
+      </div>
+
+
+      <!-- İSİM BÖLÜMÜ -->
+      <div class="info-box">
+
+        <div class="info-line">
+
+          <div class="small-icon">
+            👤
+          </div>
+
+          <div class="info-content">
+
+            <div class="label">
+              Ad Soyad
+            </div>
+
+            <div id="name" class="value">
+              Yükleniyor...
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <button id="copyName" class="copy-button">
+          <span class="copy-symbol">▣</span>
+          İsmi Kopyala
+        </button>
+
+        <div id="nameStatus" class="success-message">
+          ✓ İsim kopyalandı!
+        </div>
+
+      </div>
+
+
+      <!-- IBAN BÖLÜMÜ -->
+      <div class="info-box">
+
+        <div class="info-line">
+
+          <div class="small-icon">
+            💳
+          </div>
+
+          <div class="info-content">
+
+            <div class="label">
+              IBAN
+            </div>
+
+            <div id="iban" class="value iban-value">
+              Yükleniyor...
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <button id="copyIban" class="copy-button">
+          <span class="copy-symbol">▣</span>
+          IBAN'ı Kopyala
+        </button>
+
+        <div id="ibanStatus" class="success-message">
+          ✓ IBAN kopyalandı!
+        </div>
+
+      </div>
+
+
+      <!-- ALT BİLGİ -->
+      <div class="secure-message">
+        🔒 Ödemelerinizi güvenli şekilde gerçekleştirebilirsiniz.
+      </div>
+
+      <div class="thanks">
+        Teşekkür ederiz. 🙏
+      </div>
+
+    </section>
+
+
+    <!-- ALT DEKOR -->
+    <div class="bottom-decoration">
+      <span></span>
+      <b>✦</b>
+      <span></span>
+    </div>
+
+  </main>
+
+
+  <script src="script.js"></script>
+
 </body>
 </html>
