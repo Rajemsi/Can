@@ -2,120 +2,426 @@
   box-sizing: border-box;
 }
 
-:root {
-  --card: rgba(255,255,255,.94);
-  --text: #171717;
-  --muted: #6b7280;
-  --button: #111827;
-  --button-text: #fff;
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
 }
 
 body {
-  margin: 0;
   min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #171717;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 221, 160, .75), transparent 30%),
+    radial-gradient(circle at 85% 35%, rgba(70, 74, 48, .45), transparent 28%),
+    radial-gradient(circle at 30% 85%, rgba(177, 126, 75, .45), transparent 35%),
+    linear-gradient(145deg, #efe2cf 0%, #c9ad89 48%, #8d765f 100%);
+  background-attachment: fixed;
+}
+
+/* Arka planı yumuşatır */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 5% 45%, rgba(38, 49, 29, .25), transparent 18%),
+    radial-gradient(ellipse at 95% 30%, rgba(38, 49, 29, .22), transparent 20%);
+  filter: blur(18px);
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 480px);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 45px 18px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* =========================
+   ÜST KISIM
+========================= */
+
+.header {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.signature {
+  font-family: "Brush Script MT", "Segoe Script", cursive;
+  font-size: clamp(48px, 14vw, 76px);
+  line-height: .95;
+  font-style: italic;
+  color: #171717;
+  transform: rotate(-4deg);
+  margin: 20px auto 35px;
+  white-space: nowrap;
+}
+
+.page-title {
+  font-size: 15px;
+  letter-spacing: 7px;
+  color: rgba(40, 40, 40, .68);
+  font-weight: 500;
+}
+
+/* =========================
+   ANA KART
+========================= */
+
+.payment-card {
+  position: relative;
+  width: 100%;
+  padding: 82px 20px 35px;
+  border: 1px solid rgba(255, 255, 255, .9);
+  border-radius: 34px;
+
+  background: rgba(255, 250, 244, .76);
+
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+
+  box-shadow:
+    0 25px 60px rgba(54, 38, 23, .20),
+    inset 0 1px 0 rgba(255, 255, 255, .95);
+}
+
+/* BANKA İKONU */
+
+.bank-icon {
+  position: absolute;
+  top: -62px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 124px;
+  height: 124px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--text);
+
+  border-radius: 50%;
+
   background:
-    radial-gradient(circle at top left, #dbeafe, transparent 35%),
-    radial-gradient(circle at bottom right, #ede9fe, transparent 35%),
-    #f3f4f6;
+    linear-gradient(145deg, #fff9e8, #efc779);
+
+  border: 2px solid rgba(255, 255, 255, .85);
+
+  box-shadow:
+    0 10px 30px rgba(174, 119, 36, .25),
+    inset 0 0 25px rgba(255, 255, 255, .7);
+
+  font-size: 52px;
 }
 
-.card {
-  width: min(100%, 430px);
-  padding: 34px 26px;
-  text-align: center;
-  border-radius: 24px;
-  background: var(--card);
-  box-shadow: 0 20px 60px rgba(0,0,0,.12);
-  backdrop-filter: blur(10px);
+/* =========================
+   BİLGİ KUTULARI
+========================= */
+
+.info-box {
+  padding: 18px 14px 14px;
+  margin-bottom: 17px;
+
+  border-radius: 25px;
+
+  background: rgba(255, 255, 255, .58);
+
+  border: 1px solid rgba(255, 255, 255, .75);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.9),
+    0 8px 25px rgba(70, 50, 30, .05);
 }
 
-.logo {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 18px;
-  display: grid;
-  place-items: center;
-  border-radius: 18px;
-  background: #111827;
-  color: white;
-  font-size: 28px;
-  font-weight: 700;
+.info-line {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  padding: 3px 7px 17px;
 }
 
-h1 {
-  margin: 0;
-  font-size: 27px;
+.small-icon {
+  flex: 0 0 62px;
+
+  width: 62px;
+  height: 62px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(225, 222, 215, .60);
+
+  font-size: 29px;
 }
 
-.subtitle {
-  margin: 10px 0 28px;
-  color: var(--muted);
-  line-height: 1.5;
-}
-
-.info {
-  text-align: left;
+.info-content {
+  flex: 1;
+  min-width: 0;
 }
 
 .label {
-  margin-top: 18px;
-  margin-bottom: 7px;
-  color: var(--muted);
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .06em;
-}
-
-.name {
-  font-size: 18px;
-  font-weight: 700;
-}
-
-.iban-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px;
-  border: 1px solid #e5e7eb;
-  border-radius: 14px;
-  background: #f9fafb;
-}
-
-#iban {
-  flex: 1;
-  min-width: 0;
-  overflow-wrap: anywhere;
+  color: #656565;
   font-size: 14px;
   font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.value {
+  color: #080808;
+  font-size: 22px;
+  line-height: 1.25;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.iban-value {
+  font-size: 19px;
+  letter-spacing: .4px;
+}
+
+/* =========================
+   ALTIN KOPYALA BUTONU
+========================= */
+
+.copy-button {
+  width: 100%;
+  min-height: 65px;
+
+  border: 1px solid rgba(255, 244, 203, .95);
+  border-radius: 999px;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+
+  color: white;
+
+  font-size: 18px;
+  font-weight: 800;
+
+  background:
+    linear-gradient(
+      100deg,
+      #f1c762 0%,
+      #d5a343 40%,
+      #aa772e 100%
+    );
+
+  box-shadow:
+    0 8px 20px rgba(165, 112, 34, .22),
+    inset 0 1px 2px rgba(255,255,255,.65);
+
+  transition:
+    transform .15s ease,
+    box-shadow .15s ease;
+}
+
+.copy-button:active {
+  transform: scale(.98);
+
+  box-shadow:
+    0 4px 12px rgba(165, 112, 34, .20);
+}
+
+.copy-symbol {
+  font-size: 26px;
+  line-height: 1;
+}
+
+/* =========================
+   KOPYALANDI MESAJI
+========================= */
+
+.success-message {
+  display: none;
+
+  margin-top: 12px;
+  padding: 14px 10px;
+
+  border-radius: 999px;
+
+  text-align: center;
+
+  color: #159251;
+  font-size: 15px;
+  font-weight: 800;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(216, 247, 226, .90),
+      rgba(231, 250, 236, .80)
+    );
+}
+
+/* =========================
+   ALT YAZILAR
+========================= */
+
+.secure-message {
+  margin-top: 28px;
+
+  color: #666;
+  font-size: 13px;
+  font-weight: 600;
+
+  text-align: center;
   line-height: 1.5;
 }
 
-button {
-  flex: 0 0 auto;
-  border: 0;
-  border-radius: 10px;
-  padding: 10px 13px;
-  background: var(--button);
-  color: var(--button-text);
-  font-weight: 700;
-  cursor: pointer;
+.thanks {
+  margin-top: 5px;
+
+  color: #666;
+  font-size: 14px;
+
+  text-align: center;
 }
 
-button:active {
-  transform: scale(.97);
+/* =========================
+   ALT DEKORASYON
+========================= */
+
+.bottom-decoration {
+  width: 80%;
+
+  margin-top: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+
+  color: #d7a94e;
 }
 
-.status {
-  min-height: 20px;
-  margin-top: 9px;
-  color: #15803d;
-  font-size: 13px;
-  text-align: right;
+.bottom-decoration span {
+  height: 1px;
+  flex: 1;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #d7a94e,
+      transparent
+    );
+}
+
+.bottom-decoration b {
+  font-size: 26px;
+  font-weight: 400;
+}
+
+/* =========================
+   TELEFON EKRANLARI
+========================= */
+
+@media (max-width: 480px) {
+
+  .page {
+    padding:
+      max(30px, env(safe-area-inset-top))
+      14px
+      25px;
+  }
+
+  .header {
+    margin-bottom: 65px;
+  }
+
+  .signature {
+    font-size: 15vw;
+    margin-top: 15px;
+    margin-bottom: 30px;
+  }
+
+  .page-title {
+    font-size: 12px;
+    letter-spacing: 5px;
+  }
+
+  .payment-card {
+    padding:
+      72px
+      13px
+      28px;
+
+    border-radius: 30px;
+  }
+
+  .bank-icon {
+    width: 108px;
+    height: 108px;
+    top: -54px;
+
+    font-size: 44px;
+  }
+
+  .info-box {
+    border-radius: 22px;
+    padding: 15px 11px 12px;
+  }
+
+  .small-icon {
+    flex-basis: 53px;
+    width: 53px;
+    height: 53px;
+
+    font-size: 25px;
+  }
+
+  .value {
+    font-size: 20px;
+  }
+
+  .iban-value {
+    font-size: 17px;
+  }
+
+  .copy-button {
+    min-height: 59px;
+    font-size: 17px;
+  }
+}
+
+/* Çok küçük telefonlar */
+@media (max-width: 350px) {
+
+  .signature {
+    font-size: 13vw;
+  }
+
+  .small-icon {
+    flex-basis: 46px;
+    width: 46px;
+    height: 46px;
+  }
+
+  .value {
+    font-size: 18px;
+  }
+
+  .iban-value {
+    font-size: 15px;
+  }
+
+  .copy-button {
+    font-size: 15px;
+  }
 }
