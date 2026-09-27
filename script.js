@@ -351,7 +351,3 @@ if (!musteri || !musteri.isim || !musteri.iban) {
   });
 
 }
-    }
-    setTimeout(() => statusEl.textContent = "", 2500);
-  };
-}
