@@ -1,11 +1,45 @@
-<!DOCTYPE html>
-<html lang="tr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#d8b77e"><title>Ödeme Bilgileri</title><link rel="stylesheet" href="style.css?v=3"></head>
-<body><main class="page"><header class="header"><div class="signature">Can Açıkalın</div><div class="page-title">ÖDEME BİLGİLERİ</div></header>
-<section class="payment-card"><div class="bank-icon">🏛️</div>
-<div class="info-box"><div class="info-line"><div class="small-icon">👤</div><div class="info-content"><div class="label">Ad Soyad</div><div id="name" class="value">Yükleniyor...</div></div></div>
-<button id="copyName" class="copy-button" type="button">▣ &nbsp; İsmi Kopyala</button><div id="nameStatus" class="success-message"></div></div>
-<div class="info-box"><div class="info-line"><div class="small-icon">💳</div><div class="info-content"><div class="label">IBAN</div><div id="iban" class="value iban-value">Yükleniyor...</div></div></div>
-<button id="copyIban" class="copy-button" type="button">▣ &nbsp; IBAN'ı Kopyala</button><div id="ibanStatus" class="success-message"></div></div>
-<div class="secure-message">🔒 Ödeme bilgilerini göndermeden önce alıcı bilgilerini kontrol edin.</div><div class="thanks">Teşekkür ederiz. 🙏</div></section>
-<div class="bottom-decoration"><span></span><b>✦</b><span></span></div></main><script src="script.js?v=3"></script></body></html>
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#d9b77a">
+  <title>Ödeme Bilgileri</title>
+  <link rel="stylesheet" href="style.css?v=4">
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <img class="signature" src="signature.png?v=4" alt="Can Açıkalın">
+      <div class="title-row"><span></span><h1>ÖDEME BİLGİLERİ</h1><span></span></div>
+    </header>
+
+    <section class="glass-card">
+      <div class="bank-medallion" aria-hidden="true"><div class="bank">▰<br><b>III</b><br>━</div></div>
+
+      <article class="info-card">
+        <div class="info-head">
+          <div class="round-icon" aria-hidden="true">●</div>
+          <div class="info-text"><div class="label">Ad Soyad</div><div id="name" class="value">Yükleniyor...</div></div>
+        </div>
+        <button id="copyName" class="gold-btn" type="button"><span class="copy-icon">▣</span> İsmi Kopyala</button>
+        <div id="nameStatus" class="status"></div>
+      </article>
+
+      <article class="info-card">
+        <div class="info-head">
+          <div class="round-icon card-icon" aria-hidden="true">▤</div>
+          <div class="info-text"><div class="label">IBAN</div><div id="iban" class="value iban">Yükleniyor...</div></div>
+        </div>
+        <button id="copyIban" class="gold-btn" type="button"><span class="copy-icon">▣</span> IBAN'ı Kopyala</button>
+        <div id="ibanStatus" class="status"></div>
+      </article>
+
+      <div class="security"><span class="lock">▣</span> Ödeme bilgilerinizi göndermeden önce alıcı bilgilerini kontrol edin.<br><span>Teşekkür ederiz. 🙏</span></div>
+    </section>
+
+    <div class="ornament"><span></span><b>❧</b><span></span></div>
+  </main>
+  <script src="script.js?v=4"></script>
+</body>
+</html>
