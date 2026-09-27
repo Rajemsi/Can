@@ -263,28 +263,94 @@ const musteriler = {
   "255": { isim: "", iban: "" }
 };
 
-const id = new URLSearchParams(location.search).get("id") || "1";
-const m = musteriler[id];
+// URL'den müşteri numarasını al
+const id = new URLSearchParams(window.location.search).get("id") || "1";
+
+const musteri = musteriler[id];
 
 const nameEl = document.getElementById("name");
 const ibanEl = document.getElementById("iban");
-const copyBtn = document.getElementById("copy");
-const statusEl = document.getElementById("status");
 
-if (!m || !m.isim || !m.iban) {
+const copyNameBtn = document.getElementById("copyName");
+const copyIbanBtn = document.getElementById("copyIban");
+
+const nameStatus = document.getElementById("nameStatus");
+const ibanStatus = document.getElementById("ibanStatus");
+
+
+// Müşteri kontrolü
+if (!musteri || !musteri.isim || !musteri.iban) {
+
   nameEl.textContent = "Müşteri bulunamadı";
-  ibanEl.textContent = "Geçerli bir müşteri bağlantısı kullanın.";
-  copyBtn.style.display = "none";
-} else {
-  nameEl.textContent = m.isim;
-  ibanEl.textContent = m.iban;
+  ibanEl.textContent = "Geçerli müşteri bağlantısı kullanın.";
 
-  copyBtn.onclick = async () => {
+  copyNameBtn.style.display = "none";
+  copyIbanBtn.style.display = "none";
+
+} else {
+
+  // Bilgileri ekrana yaz
+  nameEl.textContent = musteri.isim;
+  ibanEl.textContent = musteri.iban;
+
+
+  // =========================
+  // İSMİ KOPYALA
+  // =========================
+
+  copyNameBtn.addEventListener("click", async () => {
+
     try {
-      await navigator.clipboard.writeText(m.iban.replaceAll(" ", ""));
-      statusEl.textContent = "IBAN kopyalandı ✓";
+
+      await navigator.clipboard.writeText(musteri.isim);
+
+      nameStatus.textContent = "✓ İsim kopyalandı!";
+      nameStatus.style.display = "block";
+
+      setTimeout(() => {
+        nameStatus.style.display = "none";
+      }, 2500);
+
     } catch {
-      statusEl.textContent = "Kopyalama başarısız.";
+
+      nameStatus.textContent = "Kopyalama başarısız.";
+      nameStatus.style.display = "block";
+
+    }
+
+  });
+
+
+  // =========================
+  // IBAN KOPYALA
+  // =========================
+
+  copyIbanBtn.addEventListener("click", async () => {
+
+    try {
+
+      // IBAN'ı boşluksuz kopyala
+      const temizIban = musteri.iban.replaceAll(" ", "");
+
+      await navigator.clipboard.writeText(temizIban);
+
+      ibanStatus.textContent = "✓ IBAN kopyalandı!";
+      ibanStatus.style.display = "block";
+
+      setTimeout(() => {
+        ibanStatus.style.display = "none";
+      }, 2500);
+
+    } catch {
+
+      ibanStatus.textContent = "Kopyalama başarısız.";
+      ibanStatus.style.display = "block";
+
+    }
+
+  });
+
+}
     }
     setTimeout(() => statusEl.textContent = "", 2500);
   };
