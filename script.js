@@ -1,10 +1,3 @@
-// 255 müşteri numarası hazır.
-// Yeni müşteri için boş numaranın isim ve iban kısmını doldur.
-// Örnek: "21": { isim: "Ahmet Yılmaz", iban: "TR..." }
-//
-// NFC örneği:
-// https://rajemsi.github.io/Can/?id=21
-
 const musteriler = {
   "1": { isim: "Can Açıkalın", iban: "TR88 5000 0000 0981 6266 9000 03" },
   "2": { isim: "Uğur Tarakcıoğlu", iban: "TR43 0015 7000 0000 0074 8925 59" },
@@ -263,91 +256,14 @@ const musteriler = {
   "255": { isim: "", iban: "" }
 };
 
-// URL'den müşteri numarasını al
-const id = new URLSearchParams(window.location.search).get("id") || "1";
-
-const musteri = musteriler[id];
-
-const nameEl = document.getElementById("name");
-const ibanEl = document.getElementById("iban");
-
-const copyNameBtn = document.getElementById("copyName");
-const copyIbanBtn = document.getElementById("copyIban");
-
-const nameStatus = document.getElementById("nameStatus");
-const ibanStatus = document.getElementById("ibanStatus");
-
-
-// Müşteri kontrolü
-if (!musteri || !musteri.isim || !musteri.iban) {
-
-  nameEl.textContent = "Müşteri bulunamadı";
-  ibanEl.textContent = "Geçerli müşteri bağlantısı kullanın.";
-
-  copyNameBtn.style.display = "none";
-  copyIbanBtn.style.display = "none";
-
-} else {
-
-  // Bilgileri ekrana yaz
-  nameEl.textContent = musteri.isim;
-  ibanEl.textContent = musteri.iban;
-
-
-  // =========================
-  // İSMİ KOPYALA
-  // =========================
-
-  copyNameBtn.addEventListener("click", async () => {
-
-    try {
-
-      await navigator.clipboard.writeText(musteri.isim);
-
-      nameStatus.textContent = "✓ İsim kopyalandı!";
-      nameStatus.style.display = "block";
-
-      setTimeout(() => {
-        nameStatus.style.display = "none";
-      }, 2500);
-
-    } catch {
-
-      nameStatus.textContent = "Kopyalama başarısız.";
-      nameStatus.style.display = "block";
-
-    }
-
-  });
-
-
-  // =========================
-  // IBAN KOPYALA
-  // =========================
-
-  copyIbanBtn.addEventListener("click", async () => {
-
-    try {
-
-      // IBAN'ı boşluksuz kopyala
-      const temizIban = musteri.iban.replaceAll(" ", "");
-
-      await navigator.clipboard.writeText(temizIban);
-
-      ibanStatus.textContent = "✓ IBAN kopyalandı!";
-      ibanStatus.style.display = "block";
-
-      setTimeout(() => {
-        ibanStatus.style.display = "none";
-      }, 2500);
-
-    } catch {
-
-      ibanStatus.textContent = "Kopyalama başarısız.";
-      ibanStatus.style.display = "block";
-
-    }
-
-  });
-
-}
+document.addEventListener("DOMContentLoaded",function(){
+const id=new URLSearchParams(location.search).get("id")||"1",m=musteriler[id];
+const n=document.getElementById("name"),i=document.getElementById("iban"),bn=document.getElementById("copyName"),bi=document.getElementById("copyIban"),sn=document.getElementById("nameStatus"),si=document.getElementById("ibanStatus");
+if(!m||!m.isim||!m.iban){n.textContent="Müşteri bulunamadı";i.textContent="Geçerli müşteri bağlantısı kullanın.";bn.style.display=bi.style.display="none";return}
+n.textContent=m.isim;i.textContent=m.iban;
+async function copy(t){if(navigator.clipboard&&window.isSecureContext){try{await navigator.clipboard.writeText(t);return true}catch(e){}}
+const a=document.createElement("textarea");a.value=t;a.readOnly=true;a.style.position="fixed";a.style.opacity="0";document.body.appendChild(a);a.select();a.setSelectionRange(0,a.value.length);let ok=false;try{ok=document.execCommand("copy")}catch(e){}a.remove();return ok}
+function msg(e,ok,t){e.textContent=ok?"✓ "+t:"Kopyalama başarısız.";e.style.display="block";clearTimeout(e._t);e._t=setTimeout(()=>e.style.display="none",2500)}
+bn.onclick=async()=>msg(sn,await copy(m.isim),"İsim kopyalandı!");
+bi.onclick=async()=>msg(si,await copy(m.iban.replace(/\s+/g,"")),"IBAN kopyalandı!");
+});
