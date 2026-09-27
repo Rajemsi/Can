@@ -1,30 +1,291 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IBAN Bilgileri</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <main class="card">
-    <div class="logo">₺</div>
-    <h1>Ödeme Bilgileri</h1>
-    <p class="subtitle">Aşağıdaki IBAN üzerinden ödeme yapabilirsiniz.</p>
+// 255 müşteri numarası hazır.
+// Yeni müşteri için boş numaranın isim ve iban kısmını doldur.
+// Örnek: "21": { isim: "Ahmet Yılmaz", iban: "TR..." }
+//
+// NFC örneği:
+// https://rajemsi.github.io/Can/?id=21
 
-    <section class="info">
-      <div class="label">Ad Soyad</div>
-      <div class="name" id="name">AD SOYAD</div>
+const musteriler = {
+  "1": { isim: "Can Açıkalın", iban: "TR88 5000 0000 0981 6266 9000 03" },
+  "2": { isim: "", iban: "" },
+  "3": { isim: "", iban: "" },
+  "4": { isim: "", iban: "" },
+  "5": { isim: "", iban: "" },
+  "6": { isim: "", iban: "" },
+  "7": { isim: "", iban: "" },
+  "8": { isim: "", iban: "" },
+  "9": { isim: "", iban: "" },
+  "10": { isim: "", iban: "" },
+  "11": { isim: "", iban: "" },
+  "12": { isim: "", iban: "" },
+  "13": { isim: "", iban: "" },
+  "14": { isim: "", iban: "" },
+  "15": { isim: "", iban: "" },
+  "16": { isim: "", iban: "" },
+  "17": { isim: "", iban: "" },
+  "18": { isim: "", iban: "" },
+  "19": { isim: "", iban: "" },
+  "20": { isim: "", iban: "" },
+  "21": { isim: "", iban: "" },
+  "22": { isim: "", iban: "" },
+  "23": { isim: "", iban: "" },
+  "24": { isim: "", iban: "" },
+  "25": { isim: "", iban: "" },
+  "26": { isim: "", iban: "" },
+  "27": { isim: "", iban: "" },
+  "28": { isim: "", iban: "" },
+  "29": { isim: "", iban: "" },
+  "30": { isim: "", iban: "" },
+  "31": { isim: "", iban: "" },
+  "32": { isim: "", iban: "" },
+  "33": { isim: "", iban: "" },
+  "34": { isim: "", iban: "" },
+  "35": { isim: "", iban: "" },
+  "36": { isim: "", iban: "" },
+  "37": { isim: "", iban: "" },
+  "38": { isim: "", iban: "" },
+  "39": { isim: "", iban: "" },
+  "40": { isim: "", iban: "" },
+  "41": { isim: "", iban: "" },
+  "42": { isim: "", iban: "" },
+  "43": { isim: "", iban: "" },
+  "44": { isim: "", iban: "" },
+  "45": { isim: "", iban: "" },
+  "46": { isim: "", iban: "" },
+  "47": { isim: "", iban: "" },
+  "48": { isim: "", iban: "" },
+  "49": { isim: "", iban: "" },
+  "50": { isim: "", iban: "" },
+  "51": { isim: "", iban: "" },
+  "52": { isim: "", iban: "" },
+  "53": { isim: "", iban: "" },
+  "54": { isim: "", iban: "" },
+  "55": { isim: "", iban: "" },
+  "56": { isim: "", iban: "" },
+  "57": { isim: "", iban: "" },
+  "58": { isim: "", iban: "" },
+  "59": { isim: "", iban: "" },
+  "60": { isim: "", iban: "" },
+  "61": { isim: "", iban: "" },
+  "62": { isim: "", iban: "" },
+  "63": { isim: "", iban: "" },
+  "64": { isim: "", iban: "" },
+  "65": { isim: "", iban: "" },
+  "66": { isim: "", iban: "" },
+  "67": { isim: "", iban: "" },
+  "68": { isim: "", iban: "" },
+  "69": { isim: "", iban: "" },
+  "70": { isim: "", iban: "" },
+  "71": { isim: "", iban: "" },
+  "72": { isim: "", iban: "" },
+  "73": { isim: "", iban: "" },
+  "74": { isim: "", iban: "" },
+  "75": { isim: "", iban: "" },
+  "76": { isim: "", iban: "" },
+  "77": { isim: "", iban: "" },
+  "78": { isim: "", iban: "" },
+  "79": { isim: "", iban: "" },
+  "80": { isim: "", iban: "" },
+  "81": { isim: "", iban: "" },
+  "82": { isim: "", iban: "" },
+  "83": { isim: "", iban: "" },
+  "84": { isim: "", iban: "" },
+  "85": { isim: "", iban: "" },
+  "86": { isim: "", iban: "" },
+  "87": { isim: "", iban: "" },
+  "88": { isim: "", iban: "" },
+  "89": { isim: "", iban: "" },
+  "90": { isim: "", iban: "" },
+  "91": { isim: "", iban: "" },
+  "92": { isim: "", iban: "" },
+  "93": { isim: "", iban: "" },
+  "94": { isim: "", iban: "" },
+  "95": { isim: "", iban: "" },
+  "96": { isim: "", iban: "" },
+  "97": { isim: "", iban: "" },
+  "98": { isim: "", iban: "" },
+  "99": { isim: "", iban: "" },
+  "100": { isim: "", iban: "" },
+  "101": { isim: "", iban: "" },
+  "102": { isim: "", iban: "" },
+  "103": { isim: "", iban: "" },
+  "104": { isim: "", iban: "" },
+  "105": { isim: "", iban: "" },
+  "106": { isim: "", iban: "" },
+  "107": { isim: "", iban: "" },
+  "108": { isim: "", iban: "" },
+  "109": { isim: "", iban: "" },
+  "110": { isim: "", iban: "" },
+  "111": { isim: "", iban: "" },
+  "112": { isim: "", iban: "" },
+  "113": { isim: "", iban: "" },
+  "114": { isim: "", iban: "" },
+  "115": { isim: "", iban: "" },
+  "116": { isim: "", iban: "" },
+  "117": { isim: "", iban: "" },
+  "118": { isim: "", iban: "" },
+  "119": { isim: "", iban: "" },
+  "120": { isim: "", iban: "" },
+  "121": { isim: "", iban: "" },
+  "122": { isim: "", iban: "" },
+  "123": { isim: "", iban: "" },
+  "124": { isim: "", iban: "" },
+  "125": { isim: "", iban: "" },
+  "126": { isim: "", iban: "" },
+  "127": { isim: "", iban: "" },
+  "128": { isim: "", iban: "" },
+  "129": { isim: "", iban: "" },
+  "130": { isim: "", iban: "" },
+  "131": { isim: "", iban: "" },
+  "132": { isim: "", iban: "" },
+  "133": { isim: "", iban: "" },
+  "134": { isim: "", iban: "" },
+  "135": { isim: "", iban: "" },
+  "136": { isim: "", iban: "" },
+  "137": { isim: "", iban: "" },
+  "138": { isim: "", iban: "" },
+  "139": { isim: "", iban: "" },
+  "140": { isim: "", iban: "" },
+  "141": { isim: "", iban: "" },
+  "142": { isim: "", iban: "" },
+  "143": { isim: "", iban: "" },
+  "144": { isim: "", iban: "" },
+  "145": { isim: "", iban: "" },
+  "146": { isim: "", iban: "" },
+  "147": { isim: "", iban: "" },
+  "148": { isim: "", iban: "" },
+  "149": { isim: "", iban: "" },
+  "150": { isim: "", iban: "" },
+  "151": { isim: "", iban: "" },
+  "152": { isim: "", iban: "" },
+  "153": { isim: "", iban: "" },
+  "154": { isim: "", iban: "" },
+  "155": { isim: "", iban: "" },
+  "156": { isim: "", iban: "" },
+  "157": { isim: "", iban: "" },
+  "158": { isim: "", iban: "" },
+  "159": { isim: "", iban: "" },
+  "160": { isim: "", iban: "" },
+  "161": { isim: "", iban: "" },
+  "162": { isim: "", iban: "" },
+  "163": { isim: "", iban: "" },
+  "164": { isim: "", iban: "" },
+  "165": { isim: "", iban: "" },
+  "166": { isim: "", iban: "" },
+  "167": { isim: "", iban: "" },
+  "168": { isim: "", iban: "" },
+  "169": { isim: "", iban: "" },
+  "170": { isim: "", iban: "" },
+  "171": { isim: "", iban: "" },
+  "172": { isim: "", iban: "" },
+  "173": { isim: "", iban: "" },
+  "174": { isim: "", iban: "" },
+  "175": { isim: "", iban: "" },
+  "176": { isim: "", iban: "" },
+  "177": { isim: "", iban: "" },
+  "178": { isim: "", iban: "" },
+  "179": { isim: "", iban: "" },
+  "180": { isim: "", iban: "" },
+  "181": { isim: "", iban: "" },
+  "182": { isim: "", iban: "" },
+  "183": { isim: "", iban: "" },
+  "184": { isim: "", iban: "" },
+  "185": { isim: "", iban: "" },
+  "186": { isim: "", iban: "" },
+  "187": { isim: "", iban: "" },
+  "188": { isim: "", iban: "" },
+  "189": { isim: "", iban: "" },
+  "190": { isim: "", iban: "" },
+  "191": { isim: "", iban: "" },
+  "192": { isim: "", iban: "" },
+  "193": { isim: "", iban: "" },
+  "194": { isim: "", iban: "" },
+  "195": { isim: "", iban: "" },
+  "196": { isim: "", iban: "" },
+  "197": { isim: "", iban: "" },
+  "198": { isim: "", iban: "" },
+  "199": { isim: "", iban: "" },
+  "200": { isim: "", iban: "" },
+  "201": { isim: "", iban: "" },
+  "202": { isim: "", iban: "" },
+  "203": { isim: "", iban: "" },
+  "204": { isim: "", iban: "" },
+  "205": { isim: "", iban: "" },
+  "206": { isim: "", iban: "" },
+  "207": { isim: "", iban: "" },
+  "208": { isim: "", iban: "" },
+  "209": { isim: "", iban: "" },
+  "210": { isim: "", iban: "" },
+  "211": { isim: "", iban: "" },
+  "212": { isim: "", iban: "" },
+  "213": { isim: "", iban: "" },
+  "214": { isim: "", iban: "" },
+  "215": { isim: "", iban: "" },
+  "216": { isim: "", iban: "" },
+  "217": { isim: "", iban: "" },
+  "218": { isim: "", iban: "" },
+  "219": { isim: "", iban: "" },
+  "220": { isim: "", iban: "" },
+  "221": { isim: "", iban: "" },
+  "222": { isim: "", iban: "" },
+  "223": { isim: "", iban: "" },
+  "224": { isim: "", iban: "" },
+  "225": { isim: "", iban: "" },
+  "226": { isim: "", iban: "" },
+  "227": { isim: "", iban: "" },
+  "228": { isim: "", iban: "" },
+  "229": { isim: "", iban: "" },
+  "230": { isim: "", iban: "" },
+  "231": { isim: "", iban: "" },
+  "232": { isim: "", iban: "" },
+  "233": { isim: "", iban: "" },
+  "234": { isim: "", iban: "" },
+  "235": { isim: "", iban: "" },
+  "236": { isim: "", iban: "" },
+  "237": { isim: "", iban: "" },
+  "238": { isim: "", iban: "" },
+  "239": { isim: "", iban: "" },
+  "240": { isim: "", iban: "" },
+  "241": { isim: "", iban: "" },
+  "242": { isim: "", iban: "" },
+  "243": { isim: "", iban: "" },
+  "244": { isim: "", iban: "" },
+  "245": { isim: "", iban: "" },
+  "246": { isim: "", iban: "" },
+  "247": { isim: "", iban: "" },
+  "248": { isim: "", iban: "" },
+  "249": { isim: "", iban: "" },
+  "250": { isim: "", iban: "" },
+  "251": { isim: "", iban: "" },
+  "252": { isim: "", iban: "" },
+  "253": { isim: "", iban: "" },
+  "254": { isim: "", iban: "" },
+  "255": { isim: "", iban: "" }
+};
 
-      <div class="label">IBAN</div>
-      <div class="iban-row">
-        <span id="iban">TR00 0000 0000 0000 0000 0000 00</span>
-        <button id="copyBtn" type="button">Kopyala</button>
-      </div>
-      <div id="status" class="status" aria-live="polite"></div>
-    </section>
-  </main>
+const id = new URLSearchParams(location.search).get("id") || "1";
+const m = musteriler[id];
 
-  <script src="script.js"></script>
-</body>
-</html>
+const nameEl = document.getElementById("name");
+const ibanEl = document.getElementById("iban");
+const copyBtn = document.getElementById("copy");
+const statusEl = document.getElementById("status");
+
+if (!m || !m.isim || !m.iban) {
+  nameEl.textContent = "Müşteri bulunamadı";
+  ibanEl.textContent = "Geçerli bir müşteri bağlantısı kullanın.";
+  copyBtn.style.display = "none";
+} else {
+  nameEl.textContent = m.isim;
+  ibanEl.textContent = m.iban;
+
+  copyBtn.onclick = async () => {
+    try {
+      await navigator.clipboard.writeText(m.iban.replaceAll(" ", ""));
+      statusEl.textContent = "IBAN kopyalandı ✓";
+    } catch {
+      statusEl.textContent = "Kopyalama başarısız.";
+    }
+    setTimeout(() => statusEl.textContent = "", 2500);
+  };
+}
