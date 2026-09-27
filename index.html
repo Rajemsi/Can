@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IBAN Bilgileri</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+    <div class="logo">₺</div>
+    <h1>Ödeme Bilgileri</h1>
+    <p class="subtitle">Aşağıdaki IBAN üzerinden ödeme yapabilirsiniz.</p>
+
+    <section class="info">
+      <div class="label">Ad Soyad</div>
+      <div class="name" id="name">AD SOYAD</div>
+
+      <div class="label">IBAN</div>
+      <div class="iban-row">
+        <span id="iban">TR00 0000 0000 0000 0000 0000 00</span>
+        <button id="copyBtn" type="button">Kopyala</button>
+      </div>
+      <div id="status" class="status" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
