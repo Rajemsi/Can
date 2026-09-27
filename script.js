@@ -256,14 +256,19 @@ const musteriler = {
   "255": { isim: "", iban: "" }
 };
 
-document.addEventListener("DOMContentLoaded",function(){
-const id=new URLSearchParams(location.search).get("id")||"1",m=musteriler[id];
-const n=document.getElementById("name"),i=document.getElementById("iban"),bn=document.getElementById("copyName"),bi=document.getElementById("copyIban"),sn=document.getElementById("nameStatus"),si=document.getElementById("ibanStatus");
-if(!m||!m.isim||!m.iban){n.textContent="Müşteri bulunamadı";i.textContent="Geçerli müşteri bağlantısı kullanın.";bn.style.display=bi.style.display="none";return}
-n.textContent=m.isim;i.textContent=m.iban;
-async function copy(t){if(navigator.clipboard&&window.isSecureContext){try{await navigator.clipboard.writeText(t);return true}catch(e){}}
-const a=document.createElement("textarea");a.value=t;a.readOnly=true;a.style.position="fixed";a.style.opacity="0";document.body.appendChild(a);a.select();a.setSelectionRange(0,a.value.length);let ok=false;try{ok=document.execCommand("copy")}catch(e){}a.remove();return ok}
-function msg(e,ok,t){e.textContent=ok?"✓ "+t:"Kopyalama başarısız.";e.style.display="block";clearTimeout(e._t);e._t=setTimeout(()=>e.style.display="none",2500)}
-bn.onclick=async()=>msg(sn,await copy(m.isim),"İsim kopyalandı!");
-bi.onclick=async()=>msg(si,await copy(m.iban.replace(/\s+/g,"")),"IBAN kopyalandı!");
+document.addEventListener("DOMContentLoaded",()=>{
+  const id=new URLSearchParams(location.search).get("id")||"1";
+  const m=musteriler[id];
+  const name=document.getElementById("name"),iban=document.getElementById("iban");
+  const copyName=document.getElementById("copyName"),copyIban=document.getElementById("copyIban");
+  const nameStatus=document.getElementById("nameStatus"),ibanStatus=document.getElementById("ibanStatus");
+  if(!m||!m.isim||!m.iban){name.textContent="Müşteri bulunamadı";iban.textContent="Geçerli müşteri bağlantısı kullanın.";copyName.style.display=copyIban.style.display="none";return;}
+  name.textContent=m.isim; iban.textContent=m.iban;
+  async function copyText(text){
+    if(navigator.clipboard&&window.isSecureContext){try{await navigator.clipboard.writeText(text);return true}catch(e){}}
+    const a=document.createElement("textarea");a.value=text;a.readOnly=true;a.style.position="fixed";a.style.opacity="0";document.body.appendChild(a);a.select();a.setSelectionRange(0,a.value.length);let ok=false;try{ok=document.execCommand("copy")}catch(e){}a.remove();return ok;
+  }
+  function show(el,ok,msg){el.classList.toggle("ok",ok);el.textContent=ok?msg:"Kopyalama başarısız.";el.style.display="block";clearTimeout(el._t);el._t=setTimeout(()=>el.style.display="none",2500)}
+  copyName.addEventListener("click",async()=>show(nameStatus,await copyText(m.isim),"İsim kopyalandı!"));
+  copyIban.addEventListener("click",async()=>show(ibanStatus,await copyText(m.iban.replace(/\s+/g,"")),"IBAN kopyalandı!"));
 });
