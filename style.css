@@ -8,6 +8,71 @@ body:before,body:after{content:"";position:fixed;inset:-35%;pointer-events:none;
 .info-card{position:relative;margin-bottom:24px;padding:20px;border-radius:28px;border:1px solid rgba(255,255,255,.7);background:linear-gradient(135deg,rgba(255,248,234,.96),rgba(239,224,201,.90));box-shadow:0 15px 35px rgba(0,0,0,.19),inset 0 1px 0 #fff}.info-head{display:flex;align-items:center;gap:18px;padding:0 8px 18px}.round-icon{flex:0 0 68px;width:68px;height:68px;border-radius:50%;position:relative;background:linear-gradient(145deg,#fff8e8,#ead8b8);box-shadow:inset 0 0 0 1px rgba(142,91,20,.12)}.person:before{content:"";position:absolute;width:17px;height:17px;border-radius:50%;background:#a87327;left:25px;top:14px}.person:after{content:"";position:absolute;width:32px;height:23px;border-radius:18px 18px 8px 8px;background:#a87327;left:18px;top:34px}.card i{position:absolute;width:32px;height:23px;border:3px solid #a87327;border-radius:4px;left:18px;top:22px}.card i:after{content:"";position:absolute;left:3px;right:3px;top:5px;border-top:3px solid #a87327}.info-text{flex:1;min-width:0}.label{font-size:14px;color:#6f6254;margin-bottom:6px}.value{font-size:26px;line-height:1.15;font-weight:800;overflow-wrap:anywhere}.value.iban{font-size:21px;letter-spacing:.2px}.gold-btn{width:100%;min-height:66px;border:1px solid #ffd36f;border-radius:20px;color:#fff;font-size:19px;font-weight:800;cursor:pointer;background:linear-gradient(105deg,#ffc64d 0%,#e5a126 50%,#a9650c 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 8px 22px rgba(110,57,0,.28);transition:.18s transform,.18s filter}.gold-btn:hover{filter:brightness(1.08)}.gold-btn:active{transform:scale(.985)}.copy-icon{display:inline-block;width:17px;height:21px;border:2px solid #fff;border-radius:2px;margin-right:13px;vertical-align:-5px;position:relative}.copy-icon:before{content:"";position:absolute;width:13px;height:17px;border:2px solid #fff;border-radius:2px;left:-7px;top:-7px}.status{display:none;margin-top:12px;padding:12px;border-radius:16px;text-align:center;color:#176e38;font-weight:800;background:rgba(219,248,225,.95)}.security{text-align:center;color:#ead7b6;font-size:13px;line-height:1.9;margin-top:23px;text-shadow:0 2px 8px #000}.security>span:last-child{color:#f5dfbd}.lock{display:inline-block;width:12px;height:11px;border:2px solid #e4b85f;border-radius:2px;margin-right:8px;position:relative}.lock:before{content:"";position:absolute;width:7px;height:7px;border:2px solid #e4b85f;border-bottom:0;border-radius:7px 7px 0 0;left:1px;top:-8px}.ornament{width:65%;display:flex;align-items:center;gap:16px;margin-top:28px;color:#dcae54}.ornament span{height:1px;flex:1;background:linear-gradient(90deg,transparent,#dcae54)}.ornament span:last-child{background:linear-gradient(90deg,#dcae54,transparent)}.ornament b{font-size:25px}
 @media(max-width:620px){.page{padding:26px 14px 26px}.hero{margin-bottom:58px}.signature{width:96%;max-height:135px;margin-bottom:16px}.title-row{gap:10px}.title-row span{width:48px}.title-row h1{font-size:11px;letter-spacing:4px}.glass-card{padding:78px 12px 22px;border-radius:30px}.bank-medallion{width:118px;height:118px;top:-59px}.roof{width:57px;height:20px}.columns{gap:7px}.columns i{width:8px;height:29px}.base{width:59px;height:7px;box-shadow:0 7px 0 -2px #68410f}.info-card{padding:13px;margin-bottom:17px;border-radius:23px}.info-head{gap:11px;padding:0 4px 12px}.round-icon{flex-basis:54px;width:54px;height:54px}.person:before{width:14px;height:14px;left:20px;top:11px}.person:after{width:27px;height:20px;left:14px;top:28px}.card i{width:27px;height:20px;left:14px;top:17px}.label{font-size:12px}.value{font-size:20px}.value.iban{font-size:16px}.gold-btn{min-height:56px;border-radius:18px;font-size:16px}.security{font-size:11px;margin-top:18px}.ornament{margin-top:20px}}
 @media(prefers-reduced-motion:reduce){body:before,body:after,.page:before{animation:none}}
-.title-row {
-  transform: translateY(-8px);
+/* ÖDEME BİLGİLERİ başlığını çok hafif yukarı al */
+.title-row{transform:translateY(-8px)}
+
+/* Küçük WhatsApp iletişim alanı */
+.mini-contact{
+  position:relative;
+  z-index:2;
+  width:min(310px,82vw);
+  margin:10px auto 4px;
+  padding:7px 10px 8px;
+  text-align:center;
+  color:#f6ddb0;
+  border:1px solid rgba(225,166,66,.22);
+  border-radius:14px;
+  background:rgba(15,9,5,.26);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  box-shadow:0 8px 22px rgba(0,0,0,.12);
+}
+.mini-contact-title{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.02em;
+  margin-bottom:2px;
+}
+.mini-contact-text{
+  font-size:9px;
+  opacity:.72;
+  margin-bottom:5px;
+}
+.mini-whatsapp{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  min-height:26px;
+  padding:5px 10px;
+  border:1px solid rgba(229,174,75,.45);
+  border-radius:999px;
+  color:#f7d995;
+  background:rgba(111,68,18,.18);
+  text-decoration:none;
+  font-size:9.5px;
+  font-weight:700;
+  transition:transform .18s ease,background .18s ease,border-color .18s ease;
+}
+.mini-whatsapp:hover{
+  transform:translateY(-1px);
+  background:rgba(157,101,27,.26);
+  border-color:rgba(245,193,91,.7);
+}
+.mini-whatsapp:active{transform:translateY(0)}
+.wa-dot{
+  display:inline-grid;
+  place-items:center;
+  width:15px;
+  height:15px;
+  border-radius:50%;
+  border:1px solid rgba(247,217,149,.5);
+  font-size:9px;
+  line-height:1;
+}
+@media(max-width:420px){
+  .mini-contact{width:min(280px,78vw);margin-top:8px;padding:6px 9px 7px}
+  .mini-contact-title{font-size:10px}
+  .mini-contact-text{font-size:8.5px}
+  .mini-whatsapp{font-size:9px;min-height:24px;padding:4px 9px}
 }
