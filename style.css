@@ -76,3 +76,19 @@ body:before,body:after{content:"";position:fixed;inset:-35%;pointer-events:none;
   .mini-contact-text{font-size:8.5px}
   .mini-whatsapp{font-size:9px;min-height:24px;padding:4px 9px}
 }
+
+/* Küçük WhatsApp alanı: teşekkür yazısının hemen altında */
+.mini-contact{
+  width:min(250px,70vw) !important;
+  margin:7px auto 2px !important;
+  padding:4px 7px 5px !important;
+  border-radius:11px !important;
+}
+.mini-contact-title{font-size:9px !important;margin-bottom:1px !important}
+.mini-contact-text{font-size:7.5px !important;margin-bottom:3px !important}
+.mini-whatsapp{
+  min-height:21px !important;
+  padding:3px 8px !important;
+  font-size:8px !important;
+}
+.wa-dot{width:13px !important;height:13px !important;font-size:8px !important}
