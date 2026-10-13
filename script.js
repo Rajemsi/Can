@@ -12,7 +12,7 @@ const musteriler = {
   "11": { isim: "", iban: "" },
   "12": { isim: "", iban: "" },
   "13": { isim: "", iban: "" },
-  "14": { isim: "", iban: "" },
+  "14": { isim: "Mert İhsan Öğütcü", iban: "TR75 0006 2000 0880 0006 8142 48" },
   "15": { isim: "", iban: "" },
   "16": { isim: "", iban: "" },
   "17": { isim: "", iban: "" },
