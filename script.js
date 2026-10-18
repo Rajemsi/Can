@@ -15,7 +15,7 @@ const musteriler = {
   "14": { isim: "Mert İhsan Öğütcü", iban: "TR75 0006 2000 0880 0006 8142 48" },
   "15": { isim: "Tat taş gıd inş san ve tic ltd şti", iban: "TR61 0001 5001 5800 7312 0946 51" },
   "16": { isim: "Selahettin Solhan", iban: "TR60 0006 2000 7420 0006 8933 10" },
-  "17": { isim: "", iban: "" },
+  "17": { isim: "İshak Atlı", iban: "TR490006701000000013552832" },
   "18": { isim: "", iban: "" },
   "19": { isim: "", iban: "" },
   "20": { isim: "", iban: "" },
