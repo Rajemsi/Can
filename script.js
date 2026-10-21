@@ -25,7 +25,7 @@ const musteriler = {
   "24": { isim: "Demet Erkan", iban: "TR170006200016500006588024" },
   "25": { isim: "Demet Erkan", iban: "TR170006200016500006588024" },
   "26": { isim: "Ferdi Güneş", iban: "TR170006701000000043399920" },
-  "27": { isim: "", iban: "" },
+  "27": { isim: "Ferdi Güneş", iban: "TR170006701000000043399920" },
   "28": { isim: "", iban: "" },
   "29": { isim: "", iban: "" },
   "30": { isim: "", iban: "" },
