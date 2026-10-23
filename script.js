@@ -38,7 +38,7 @@ const musteriler = {
   "37": { isim: "Ramazan Aydemir", iban: "TR76 0006 2001 1760 0006 6961 73" },
   "38": { isim: "Dmr Gayrimenkul", iban: "TR11 0004 6007 2988 8000 0270 27" },
   "39": { isim: "Zarif Erdem Genç", iban: "TR920006400000110292659769" },
-  "40": { isim: "TETİK SİLAH VE AV MALZEMELERİ PAZARLAMA SANAYİ VE TİCARET LİMİTED ŞİRKETİ", iban: "TR29 0006 2000 0910 0006 2891 27" },
+  "40": { isim: "TETİK SİLAH VE AV MALZEMELERİ PAZARLAMA SANAYİ VE TİCARET LİMİTED ŞİRKETİ", iban: "TR71 0021 0000 0015 8626 5000 01" },
   "41": { isim: "", iban: "" },
   "42": { isim: "", iban: "" },
   "43": { isim: "", iban: "" },
