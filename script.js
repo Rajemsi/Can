@@ -41,7 +41,7 @@ const musteriler = {
   "40": { isim: "TETİK SİLAH VE AV MALZEMELERİ PAZARLAMA SANAYİ VE TİCARET LİMİTED ŞİRKETİ", iban: "TR71 0021 0000 0015 8626 5000 01" },
   "41": { isim: "Cüneyt Gülsuyu", iban: "TR18 0001 5001 5800 7377 5786 70" },
   "42": { isim: "Ali Özgür Tunç", iban: "TR10 0011 1000 0000 0057 9147 60" },
-  "43": { isim: "", iban: "" },
+  "43": { isim: "Mehmet Bilikli", iban: "TR32 0001 2001 6330 0001 1041 42" },
   "44": { isim: "", iban: "" },
   "45": { isim: "", iban: "" },
   "46": { isim: "", iban: "" },
